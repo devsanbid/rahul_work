@@ -8,6 +8,7 @@ import Payment from './Payment.js';
 import Withdrawal from './Withdrawal.js';
 import Notification from './Notification.js';
 import AdminEarnings from './AdminEarnings.js';
+import ProposalFeedback from './ProposalFeedback.js';
 
 User.hasMany(Job, { foreignKey: 'clientId', as: 'postedJobs' });
 Job.belongsTo(User, { foreignKey: 'clientId', as: 'client' });
@@ -69,6 +70,15 @@ AdminEarnings.belongsTo(User, { foreignKey: 'developerId', as: 'developer' });
 JobRequest.hasOne(Project, { foreignKey: 'jobRequestId', as: 'project' });
 Project.belongsTo(JobRequest, { foreignKey: 'jobRequestId', as: 'jobRequest' });
 
+Proposal.hasMany(ProposalFeedback, { foreignKey: 'proposalId', as: 'feedbacks' });
+ProposalFeedback.belongsTo(Proposal, { foreignKey: 'proposalId', as: 'proposal' });
+
+User.hasMany(ProposalFeedback, { foreignKey: 'senderId', as: 'sentFeedbacks' });
+ProposalFeedback.belongsTo(User, { foreignKey: 'senderId', as: 'sender' });
+
+User.hasMany(ProposalFeedback, { foreignKey: 'receiverId', as: 'receivedFeedbacks' });
+ProposalFeedback.belongsTo(User, { foreignKey: 'receiverId', as: 'receiver' });
+
 export {
   User,
   Job,
@@ -79,5 +89,6 @@ export {
   Payment,
   Withdrawal,
   Notification,
-  AdminEarnings
+  AdminEarnings,
+  ProposalFeedback
 };

@@ -20,6 +20,7 @@ import {
   getHiredDevelopers,
   markProjectCompleted
 } from '../controllers/userController.js';
+import { createFeedback, getProposalFeedbacks, getUserFeedbacks, markFeedbackAsRead } from '../controllers/feedbackController.js';
 import { authenticateToken, authorizeRoles } from '../middleware/auth.js';
 
 const router = express.Router();
@@ -87,5 +88,18 @@ router.get('/hired-developers', authenticateToken, authorizeRoles('user'), getHi
 
 // Project management routes
 router.put('/projects/:projectId/complete', authenticateToken, authorizeRoles('user'), markProjectCompleted);
+
+router.post('/feedback', authenticateToken, authorizeRoles('user'), [
+  body('proposalId').isInt().withMessage('Valid proposal ID is required'),
+  body('message').notEmpty().withMessage('Message is required'),
+  body('feedbackType').optional().isIn(['message', 'review']).withMessage('Invalid feedback type'),
+  body('rating').optional().isInt({ min: 1, max: 5 }).withMessage('Rating must be between 1 and 5')
+], createFeedback);
+
+router.get('/feedback', authenticateToken, authorizeRoles('user'), getUserFeedbacks);
+
+router.get('/proposals/:proposalId/feedback', authenticateToken, authorizeRoles('user'), getProposalFeedbacks);
+
+router.put('/feedback/:feedbackId/read', authenticateToken, authorizeRoles('user'), markFeedbackAsRead);
 
 export default router;
