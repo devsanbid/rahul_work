@@ -9,9 +9,11 @@ import {
   FiEye,
   FiStar,
   FiMapPin,
-  FiFileText
+  FiFileText,
+  FiMessageSquare
 } from 'react-icons/fi';
 import { jobAPI, proposalAPI } from '../../services/api';
+import FeedbackSystem from '../../components/FeedbackSystem';
 
 const UserProposals = () => {
   const [jobs, setJobs] = useState([]);
@@ -23,8 +25,9 @@ const UserProposals = () => {
   const [selectedProposal, setSelectedProposal] = useState(null);
   const [showProposalModal, setShowProposalModal] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState([]);
-  const [allMessage, setAllMessage] = useState([])
+  const [successMessage, setSuccessMessage] = useState('');
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [selectedProposalForFeedback, setSelectedProposalForFeedback] = useState(null);
 
   useEffect(() => {
     fetchMyJobs();
@@ -35,8 +38,6 @@ const UserProposals = () => {
       setLoading(true);
       setError('');
       const response = await jobAPI.getMyJobs();
-      const allmessage = await proposalAPI.getMessage();
-      setAllMessage(allmessage.data.message)
       setJobs(response.data.jobs || []);
     } catch (err) {
       setError('Failed to fetch your jobs');
@@ -190,18 +191,6 @@ const UserProposals = () => {
                   <span className={`inline-block px-2 py-1 text-xs rounded-full mt-2 ${getStatusColor(job.status)}`}>
                     {job.status}
                   </span>
-
-                  <div>Comments: </div>
-                  {
-                    allMessage.length == 0 ?
-                      <div>No comments</div>
-                      :
-                      allMessage.map((message, index) => (
-                        <div key={index}>
-                          {message.comment}
-                        </div>
-                      ))
-                  }
                 </div>
               ))
             )}
@@ -298,6 +287,17 @@ const UserProposals = () => {
                         >
                           <FiEye size={16} className="mr-2" />
                           View Details
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setSelectedProposalForFeedback(proposal);
+                            setShowFeedbackModal(true);
+                          }}
+                          className="flex items-center px-4 py-2 border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors"
+                        >
+                          <FiMessageSquare size={16} className="mr-2" />
+                          Feedback
                         </button>
 
                         {proposal.status === 'pending' && (
@@ -491,6 +491,17 @@ const UserProposals = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Feedback Modal */}
+      {showFeedbackModal && selectedProposalForFeedback && (
+        <FeedbackSystem
+          proposalId={selectedProposalForFeedback.id}
+          onClose={() => {
+            setShowFeedbackModal(false);
+            setSelectedProposalForFeedback(null);
+          }}
+        />
       )}
     </div>
   );

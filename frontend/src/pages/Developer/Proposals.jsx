@@ -10,9 +10,11 @@ import {
   FiX,
   FiStar,
   FiMapPin,
-  FiLoader
+  FiLoader,
+  FiMessageSquare
 } from 'react-icons/fi';
 import { proposalAPI } from '../../services/api';
+import FeedbackSystem from '../../components/FeedbackSystem';
 
 const DeveloperProposals = () => {
   const [proposals, setProposals] = useState([]);
@@ -22,7 +24,8 @@ const DeveloperProposals = () => {
   const [selectedProposal, setSelectedProposal] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
-  const [message, setMessage] = useState("")
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [selectedProposalForFeedback, setSelectedProposalForFeedback] = useState(null);
 
   useEffect(() => {
     fetchProposals();
@@ -109,15 +112,7 @@ const DeveloperProposals = () => {
     setShowModal(true);
   };
 
-  const messageHandler = async (prospoal) => {
-    const response = await proposalAPI.sendMessage("1", message)
-    console.log(response.data)
-    if (response.data.success) {
-      alert(response.data.message)
-    } else {
-      alert(response.data.message)
-    }
-  }
+
 
   const closeModal = () => {
     setShowModal(false);
@@ -236,12 +231,6 @@ const DeveloperProposals = () => {
                 </p>
               </div>
 
-              <div className='p-7'>
-                <input onChange={e => setMessage(e.target.value)
-                } className='border' placeholder='message......' />
-                <button className='border p-2' onClick={() => messageHandler(proposal)}>send message</button>
-              </div>
-
               <div className="flex gap-3">
                 <button
                   onClick={() => openModal(proposal)}
@@ -249,6 +238,17 @@ const DeveloperProposals = () => {
                 >
                   <FiEye size={16} className="mr-2" />
                   View Details
+                </button>
+
+                <button
+                  onClick={() => {
+                    setSelectedProposalForFeedback(proposal);
+                    setShowFeedbackModal(true);
+                  }}
+                  className="flex items-center px-4 py-2 border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors"
+                >
+                  <FiMessageSquare size={16} className="mr-2" />
+                  Feedback
                 </button>
 
                 {proposal.status === 'accepted' && (
@@ -383,6 +383,17 @@ const DeveloperProposals = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Feedback Modal */}
+      {showFeedbackModal && selectedProposalForFeedback && (
+        <FeedbackSystem
+          proposalId={selectedProposalForFeedback.id}
+          onClose={() => {
+            setShowFeedbackModal(false);
+            setSelectedProposalForFeedback(null);
+          }}
+        />
       )}
     </div>
   );

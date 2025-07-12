@@ -2,6 +2,7 @@ import './index.css'
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import AuthRedirect from './components/AuthRedirect'
 
 import AdminLogin from './pages/auth/loginAdmin'
 import DeveloperLogin from './pages/auth/loginDeveloper'
@@ -48,11 +49,11 @@ function App() {
           <Route path="/" element={<Homepage/>} />
           <Route path="/login" element={<Navigate to="/login/user" replace />} />
           <Route path="/register" element={<Navigate to="/register/user" replace />} />
-          <Route path="/login/admin" element={<AdminLogin />} />
-          <Route path="/login/developer" element={<DeveloperLogin />} />
-          <Route path="/login/user" element={<UserLogin />} />
-          <Route path="/register/developer" element={<DeveloperRegister />} />
-          <Route path="/register/user" element={<UserRegister />} />
+          <Route path="/login/admin" element={<AuthRedirect><AdminLogin /></AuthRedirect>} />
+          <Route path="/login/developer" element={<AuthRedirect><DeveloperLogin /></AuthRedirect>} />
+          <Route path="/login/user" element={<AuthRedirect><UserLogin /></AuthRedirect>} />
+          <Route path="/register/developer" element={<AuthRedirect><DeveloperRegister /></AuthRedirect>} />
+          <Route path="/register/user" element={<AuthRedirect><UserRegister /></AuthRedirect>} />
           
           <Route path='/admin' element={
             <ProtectedRoute requiredRole="admin">

@@ -56,9 +56,15 @@ export const proposalAPI = {
   getMyProposals: (status) => api.get('/jobs/proposals/my-proposals', { params: { status } }),
   updateProposalStatus: (proposalId, status) => api.put(`/jobs/proposals/${proposalId}/status`, { status }),
   withdrawProposal: (proposalId) => api.delete(`/jobs/proposals/${proposalId}`),
-  markProposalCompleted: (proposalId) => api.put(`/jobs/proposals/${proposalId}/complete`),
-  sendMessage: (proposalId, comment) => api.post(`/developer/message`, { projectId: proposalId, comment }),
-  getMessage: () => api.get('/developer/message')
+  markProposalCompleted: (proposalId) => api.put(`/jobs/proposals/${proposalId}/complete`)
+};
+
+export const feedbackAPI = {
+  createFeedback: (feedbackData) => api.post('/users/feedback', feedbackData),
+  createDeveloperFeedback: (feedbackData) => api.post('/developer/feedback', feedbackData),
+  getProposalFeedbacks: (proposalId, userType = 'user') => api.get(`/${userType}/proposals/${proposalId}/feedback`),
+  getUserFeedbacks: (userType = 'user', type = 'all') => api.get(`/${userType}/feedback`, { params: { type } }),
+  markFeedbackAsRead: (feedbackId, userType = 'user') => api.put(`/${userType}/feedback/${feedbackId}/read`)
 };
 
 export const userAPI = {
