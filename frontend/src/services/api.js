@@ -62,9 +62,22 @@ export const proposalAPI = {
 export const feedbackAPI = {
   createFeedback: (feedbackData) => api.post('/users/feedback', feedbackData),
   createDeveloperFeedback: (feedbackData) => api.post('/developer/feedback', feedbackData),
-  getProposalFeedbacks: (proposalId, userType = 'user') => api.get(`/${userType}/proposals/${proposalId}/feedback`),
-  getUserFeedbacks: (userType = 'user', type = 'all') => api.get(`/${userType}/feedback`, { params: { type } }),
-  markFeedbackAsRead: (feedbackId, userType = 'user') => api.put(`/${userType}/feedback/${feedbackId}/read`)
+  getProposalFeedbacks: (proposalId, userType = 'user') => {
+    const endpoint = userType === 'developer' 
+      ? `/developer/proposals/${proposalId}/feedback`
+      : `/users/proposals/${proposalId}/feedback`;
+    return api.get(endpoint);
+  },
+  getUserFeedbacks: (userType = 'user', type = 'all') => {
+    const endpoint = userType === 'developer' ? '/developer/feedback' : '/users/feedback';
+    return api.get(endpoint, { params: { type } });
+  },
+  markFeedbackAsRead: (feedbackId, userType = 'user') => {
+    const endpoint = userType === 'developer' 
+      ? `/developer/feedback/${feedbackId}/read`
+      : `/users/feedback/${feedbackId}/read`;
+    return api.put(endpoint);
+  }
 };
 
 export const userAPI = {
