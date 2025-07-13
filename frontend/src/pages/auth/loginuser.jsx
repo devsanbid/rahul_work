@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { User, Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext'; // Added Eye and EyeOff icons
+import HomePageNavbar from '../../Components/HomepageComponents/HomePageNavbar';
 
 const UserLoginPage = () => {
   const navigate = useNavigate();
@@ -45,8 +46,9 @@ const UserLoginPage = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
+  return ( 
+    <> <HomePageNavbar/>
+    <div className=" pt-13 min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
@@ -150,6 +152,7 @@ const UserLoginPage = () => {
         </div>
       </div>
     </div>
+  </>
   );
 };
 

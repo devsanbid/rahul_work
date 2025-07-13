@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Shield, Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext'; // Added Eye and EyeOff icons
+import HomePageNavbar from '../../Components/HomepageComponents/HomePageNavbar';
 
 const AdminLoginPage = () => {
   const navigate = useNavigate();
@@ -46,7 +47,9 @@ const AdminLoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
+    <>
+    <HomePageNavbar/>
+    <div className=" pt-13 min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
@@ -139,10 +142,6 @@ const AdminLoginPage = () => {
             Other login options:
           </p>
           <div className="flex justify-center space-x-4 mt-2">
-            <Link to="/login/user" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-              User Login
-            </Link>
-            <span className="text-gray-400">|</span>
             <Link to="/login/developer" className="text-green-600 hover:text-green-700 text-sm font-medium">
               Developer Login
             </Link>
@@ -150,7 +149,7 @@ const AdminLoginPage = () => {
         </div>
       </div>
     </div>
-  );
+ </> );
 };
 
 export default AdminLoginPage;
