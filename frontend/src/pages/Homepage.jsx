@@ -3,7 +3,7 @@ import HomePageNavbar from '../Components/HomepageComponents/HomePageNavbar';
 import HeroSection from '../Components/HomepageComponents/HeroSection';
 import ServicesSection from '../components/HomepageComponents/ServicesSection';
 import AboutSection from '../Components/HomepageComponents/AboutSection';
-import ContactSection from '../Components/HomepageComponents/ContactSection';
+import ContactSection from '../components/HomepageComponents/ContactSection';
 import Footer from '../Components/HomepageComponents/Footer';
 
 const Homepage = () => {

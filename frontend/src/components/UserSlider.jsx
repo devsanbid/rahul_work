@@ -41,7 +41,7 @@ export const UserSlider = ({ isOpen, setIsSidebarOpen }) => (
     `}
     >
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h2 className="text-xl font-bold text-gray-800">Developer Panel</h2>
+        <h2 className="text-xl font-bold text-gray-800">User Panel</h2>
         <button
           onClick={() => setIsSidebarOpen(false)}
           className="lg:hidden p-1 rounded-md hover:bg-gray-100"
