@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { User, Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import HomePageNavbar from '../../Components/HomepageComponents/HomePageNavbar';
+import LoginNavbar from '../../components/LoginComponents/LoginNavbar';
 
 const UserRegisterPage = () => {
   const navigate = useNavigate();
@@ -111,7 +111,7 @@ const UserRegisterPage = () => {
 
   return (
     <>
-      <HomePageNavbar />
+      <LoginNavbar/>
       <div className="pt-19 min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
           <div className="text-center mb-8">

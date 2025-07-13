@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const HomePageNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
+const LoginNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
   return (
     <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
@@ -22,11 +22,8 @@ const HomePageNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
           </div>
           
           {/* Rest of your component remains the same */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-gray-700 hover:text-orange-600 transition-colors">Services</a>
-            <a href="#about" className="text-gray-700 hover:text-orange-600 transition-colors">About</a>
-            <a href="#contact" className="text-gray-700 hover:text-orange-600 transition-colors">Contact</a>
-            <button onClick={() => navigate('/login')} className="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">
+          <div>
+            <button onClick={() => navigate('/login')} className="bg-orange-600 mr-6 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">
              Login
             </button>
             <button onClick={() => navigate('/register')} className="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors">
@@ -62,4 +59,4 @@ const HomePageNavbar = ({ isMenuOpen, setIsMenuOpen }) => {
   );
 };
 
-export default HomePageNavbar;
+export default LoginNavbar;
