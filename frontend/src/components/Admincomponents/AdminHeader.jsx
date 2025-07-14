@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiMenu, FiBell, FiUser, FiLogOut, FiChevronDown } from "react-icons/fi";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const AdminHeader = ({ setIsSidebarOpen }) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Save, Loader2 } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const UserEditModal = ({ isOpen, onClose, user, onUpdate }) => {
   const [formData, setFormData] = useState({

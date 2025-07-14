@@ -10,9 +10,9 @@ import UserLogin from './pages/auth/loginuser'
 import DeveloperRegister from './pages/auth/registerDevoper'
 import UserRegister from './pages/auth/userregister'
 
-import  AdminLayout  from './component/layout/AdminLayout'
-import UserLayout from './components/layout/UserLayout'
-import DeveloperLayout from './components/layout/DeveloperLayout'
+import  AdminLayout  from '../src/layout/AdminLayout'
+import UserLayout from '../src/layout/UserLayout'
+import DeveloperLayout from '../src/layout/DeveloperLayout'
 
 import AdminDashbaord from './pages/admin/Dashboard'
 import FinancialsPage from './pages/admin/Financials'

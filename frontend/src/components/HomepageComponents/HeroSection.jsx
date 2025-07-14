@@ -20,7 +20,7 @@ const HeroSection = () => {
             <button onClick={() => navigate('/login')} className="border-2 border-orange-600 text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 hover:text-white transition-all">
               Hire Developers
             </button>
-            <button onClick={() => navigate('/developerlogin')} className="border-2 border-orange-600 text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 hover:text-white transition-all">
+            <button onClick={() => navigate('/login/developer')} className="border-2 border-orange-600 text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 hover:text-white transition-all">
               Join as Developer
             </button>
           </div>

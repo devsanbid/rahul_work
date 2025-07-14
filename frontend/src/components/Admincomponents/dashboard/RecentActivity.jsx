@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Activity } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const RecentActivity = () => {
   const [activities, setActivities] = useState([]);

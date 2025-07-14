@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import DeveloperHeader from "../DeveloperHeader";
-import DeveloperSidebar from "../DeveloperSilder";
-import { useAuth } from "../../context/AuthContext";
+import DeveloperHeader from "../components/Developercomponents/DeveloperHeader";
+import DeveloperSidebar from "../components/Developercomponents/Sidebar";
+import { useAuth } from "../context/AuthContext";
 
 const DeveloperDashboardLayout = () => {
   // Sidebar state for mobile
@@ -10,7 +10,7 @@ const DeveloperDashboardLayout = () => {
   const { user } = useAuth();
 
   // For Sidebar active tab (if not using react-router NavLink)
-  // const [activeTab, setActiveTab] = useState("dashboard");
+  const [activeTab, setActiveTab] = useState("dashboard");
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -22,9 +22,9 @@ const DeveloperDashboardLayout = () => {
         {/* Sidebar */}
         <DeveloperSidebar
           isOpen={isSidebarOpen}
-          setIsSidebarOpen={setIsSidebarOpen}
-          // activeTab={activeTab}
-          // setActiveTab={setActiveTab}
+          setIsOpen={setIsSidebarOpen}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
 
         {/* Main Content */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Loader2 } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const AddUserModal = ({ isOpen, onClose, onUserAdded }) => {
   const [formData, setFormData] = useState({

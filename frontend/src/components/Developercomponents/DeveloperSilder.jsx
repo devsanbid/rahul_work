@@ -1,25 +1,30 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
-  LayoutDashboard,
-  Users,
-  FolderOpen,
-  DollarSign,
-  Settings,
-  CrossIcon,
-  LogOut
-} from "lucide-react";
+  FiHome,
+  FiBriefcase,
+  FiFileText,
+  FiStar,
+  FiUser,
+  FiDollarSign,
+  FiBell,
+  FiX,
+  FiLogOut,
+} from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 
 const menuItems = [
-    { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
-    { id: 'users', name: 'User Management', icon: Users },
-    { id: 'project', name: 'Project Management', icon: FolderOpen },
-    { id: 'financials', name: 'Financials', icon: DollarSign },
-    { id: 'setting', name: 'Settings', icon: Settings },
+  { id: "dashboard", label: "Dashboard", icon: FiHome },
+  { id: "job-requests", label: "Job Requests", icon: FiBriefcase },
+  { id: "my-jobs", label: "My Jobs", icon: FiFileText },
+  { id: "proposals", label: "My Proposals", icon: FiFileText },
+  { id: "reviews", label: "Reviews", icon: FiStar },
+  { id: "profile", label: "Profile", icon: FiUser },
+  { id: "payments", label: "Payments", icon: FiDollarSign },
+  { id: "notifications", label: "Notifications", icon: FiBell },
 ];
 
-export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
+const DeveloperSidebar = ({ isOpen, setIsSidebarOpen }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -33,7 +38,7 @@ export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
     {/* Mobile overlay */}
     {isOpen && (
       <div
-        className="fixed inset-0 opacity-50 bg-gray-200/30 z-30 lg:hidden"
+        className="fixed inset-0 bg-opacity-50 z-30 lg:hidden"
         onClick={() => setIsSidebarOpen(false)}
       />
     )}
@@ -50,7 +55,7 @@ export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
           onClick={() => setIsSidebarOpen(false)}
           className="lg:hidden p-1 rounded-md hover:bg-gray-100"
         >
-          <CrossIcon size={20} />
+          <FiX size={20} />
         </button>
       </div>
       <div className="flex flex-col h-[calc(100%-5rem)]">
@@ -60,7 +65,7 @@ export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
             return (
               <NavLink
                 key={item.id}
-                to={`/admin/${item.id}`}
+                to={`/developer/${item.id}`}
                 className={({ isActive }) =>
                   `w-full flex items-center px-4 py-3 text-left transition-colors duration-200 ${
                     isActive
@@ -71,7 +76,7 @@ export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
                 onClick={() => setIsSidebarOpen(false)}
               >
                 <Icon size={20} className="mr-3" />
-                <span className="font-medium">{item.name}</span>
+                <span className="font-medium">{item.label}</span>
               </NavLink>
             );
           })}
@@ -83,12 +88,17 @@ export const AdminSidebar = ({ isOpen, setIsSidebarOpen }) => {
             onClick={handleLogout}
             className="w-full flex items-center px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
           >
-            <LogOut size={20} className="mr-3" />
+            <FiLogOut size={20} className="mr-3" />
             <span className="font-medium">Sign Out</span>
           </button>
+          
+
         </div>
       </div>
     </div>
+    
   </>
   );
 };
+
+export default DeveloperSidebar;

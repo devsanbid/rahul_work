@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Eye, Edit, Trash2, Star, Loader2 } from 'lucide-react';
-import UserModal from './UserModal';
-import UserEditModal from './UserEditModal';
-import { adminAPI } from '../../services/api';
+import UserModal from '../users/UserModal';
+import UserEditModal from '../users/UserEditModal';
+import { adminAPI } from '../../../services/api';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);

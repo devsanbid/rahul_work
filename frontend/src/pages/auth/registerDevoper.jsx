@@ -68,7 +68,7 @@ const DeveloperRegisterPage = () => {
     <>
     <LoginNavbar/>
     <div className="pt-14 min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+      <div className="mt-8 bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             {/* Developer icon instead of User icon */}
@@ -161,6 +161,18 @@ const DeveloperRegisterPage = () => {
             {loading ? 'Creating Account...' : 'Register'}
           </button>
         </form>
+
+             <div className="mt-6 text-center">
+                            <div className="flex items-center justify-center space-x-4 mb-4">
+                              <Link 
+                                to="/register/user" 
+                                className="text-orange-600 hover:text-orange-700 text-sm font-medium"
+                                tabIndex={loading ? -1 : 0}
+                              >
+                                User Register
+                              </Link>
+                            </div>
+                            </div>
         
         <div className="mt-6 text-center">
           <p className="text-gray-600">

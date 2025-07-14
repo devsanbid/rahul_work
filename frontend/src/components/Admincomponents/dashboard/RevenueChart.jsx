@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart3, PieChart, TrendingUp, TrendingDown } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const RevenueChart = () => {
   const [revenueData, setRevenueData] = useState(null);

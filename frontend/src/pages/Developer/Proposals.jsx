@@ -14,7 +14,7 @@ import {
   FiMessageSquare
 } from 'react-icons/fi';
 import { proposalAPI } from '../../services/api';
-import FeedbackSystem from '../../components/FeedbackSystem';
+import FeedbackSystem from '../../components/Developercomponents/FeedbackSystem';
 
 const DeveloperProposals = () => {
   const [proposals, setProposals] = useState([]);

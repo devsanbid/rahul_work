@@ -1,32 +1,28 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import AdminHeader from "../AdminHeader"        // Your header component
-import {AdminSidebar} from "../AdminSider";       // Your sidebar component
-import { useAuth } from "../../context/AuthContext";
+import { UserSlider } from "../components/Usercomponents/UserSlider";
+import UserHeader from "../components/Usercomponents/UserHeader";
+import { useAuth } from "./../context/AuthContext";
 
-const AdminLayout = () => {
+const UserLayout = () => {
   // Sidebar state for mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { user } = useAuth();
 
-
   return (
     <div className="min-h-screen bg-gray-50">
-  
+      <UserHeader setIsSidebarOpen={setIsSidebarOpen} developer={user} />
 
-      <AdminHeader setIsSidebarOpen={setIsSidebarOpen} developer={user} />
-
-
-
-      <div className="flex pt-16"> {/* pt-16 for header height */}
+      <div className="flex pt-16">
+        {" "}
+        {/* pt-16 for header height */}
         {/* Sidebar */}
-        <AdminSidebar
+        <UserSlider
           isOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
           // activeTab={activeTab}
           // setActiveTab={setActiveTab}
         />
-
         {/* Main Content */}
         <main className="flex-1 min-h-[calc(100vh-4rem)] p-4 sm:p-6 lg:ml-64 transition-all">
           <Outlet />
@@ -36,4 +32,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default UserLayout;

@@ -1,7 +1,7 @@
-import StatsGrid from '../../component/dashboard/StatsGrid';
-import RevenueChart from '../../component/dashboard/RevenueChart';
-import RecentActivity from '../../component/dashboard/RecentActivity';
-import RecentProjects from '../../component/dashboard/RecentProjects';
+import StatsGrid from '../../components/Admincomponents/dashboard/StatsGrid';
+import RevenueChart from '../../components/Admincomponents/dashboard/RevenueChart';
+import RecentActivity from '../../components/Admincomponents/dashboard/RecentActivity';
+import RecentProjects from '../../components/Admincomponents/dashboard/RecentProjects';
 
 const DashboardPage = () => {
   return (

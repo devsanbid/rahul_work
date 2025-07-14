@@ -311,13 +311,7 @@ const PostJob = () => {
         </div>
 
         <div className="flex justify-end space-x-4">
-          <button
-            type="button"
-            disabled={loading}
-            className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Save as Draft
-          </button>
+       
           <button
             type="submit"
             disabled={loading}

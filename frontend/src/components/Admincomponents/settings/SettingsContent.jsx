@@ -11,7 +11,7 @@ import {
   Loader2,
   AlertCircle 
 } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const SettingsContent = () => {
   const [loading, setLoading] = useState(true);

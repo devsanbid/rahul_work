@@ -5,7 +5,7 @@ import {
   DollarSign, 
   TrendingUp
 } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const StatsGrid = () => {
   const [dashboardData, setDashboardData] = useState(null);

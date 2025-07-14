@@ -1,7 +1,7 @@
 
 import React from "react";
 import { FiMenu, FiBell, FiUser, FiLogOut } from "react-icons/fi";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const UserHeader = ({ setIsSidebarOpen, developer }) => {
@@ -30,14 +30,7 @@ const UserHeader = ({ setIsSidebarOpen, developer }) => {
 
         {/* Right side */}
         <div className="flex items-center space-x-4">
-          {/* Notifications */}
-          <button className="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
-            <FiBell size={20} className="text-gray-600" />
-            <span className="absolute -top-1 -right-1 bg-[#d97757] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              3
-            </span>
-          </button>
-
+         
           {/* Profile dropdown */}
           <div className="flex items-center space-x-3">
             <div className="hidden sm:block text-right">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const RecentProjects = () => {
   const [projects, setProjects] = useState([]);

@@ -9,8 +9,8 @@ import {
   FiX,
   FiLoader
 } from 'react-icons/fi';
-import { feedbackAPI } from '../services/api';
-import { useAuth } from '../context/AuthContext';
+import { feedbackAPI } from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 
 const FeedbackSystem = ({ proposalId, onClose }) => {
   const { user } = useAuth();

@@ -1,6 +1,6 @@
 import React from 'react';
-import SettingsNavigation from '../../component/settings/SettingNavigation';
-import SettingsContent from '../../component/settings/SettingsContent';
+import SettingsNavigation from '../../components/Admincomponents/settings/SettingNavigation';
+import SettingsContent from '../../components/Admincomponents/settings/SettingsContent';
 
 const SettingsPage = () => {
   return (

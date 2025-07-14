@@ -162,7 +162,7 @@ const DeveloperProfile = ({ developer: initialDeveloper }) => {
             {(formData.skills || []).map((skill, index) => (
             <div
               key={index}
-              className="flex items-center bg-[#d97757] bg-opacity-10 text-[#d97757] px-3 py-1 rounded-full"
+              className="flex items-center bg-[#c0b7b4] bg-opacity-10 text-[#d97757] px-3 py-1 rounded-full"
             >
               <span className="text-sm font-medium">{skill}</span>
               {isEditing && (

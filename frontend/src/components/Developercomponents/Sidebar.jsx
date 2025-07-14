@@ -9,8 +9,10 @@ import {
   FiBell,
   FiX
 } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
+  const navigate = useNavigate()
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: FiHome },
     { id: 'job-requests', label: 'Job Requests', icon: FiBriefcase },
@@ -58,6 +60,7 @@ const Sidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
                 onClick={() => {
                   setActiveTab(item.id);
                   setIsOpen(false);
+                  navigate(`${item.id}`)
                 }}
                 className={`
                   w-full flex items-center px-4 py-3 text-left transition-colors duration-200
@@ -70,9 +73,11 @@ const Sidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
                 <Icon size={20} className="mr-3" />
                 <span className="font-medium">{item.label}</span>
               </button>
+              
             );
           })}
         </nav>
+        
       </div>
     </>
   );

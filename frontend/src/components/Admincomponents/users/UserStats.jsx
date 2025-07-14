@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Shield, User, Star, Loader2 } from 'lucide-react';
-import { adminAPI } from '../../services/api';
+import { adminAPI } from '../../../services/api';
 
 const UserStats = () => {
   const [stats, setStats] = useState({

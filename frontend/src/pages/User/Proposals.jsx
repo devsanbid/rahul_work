@@ -13,7 +13,7 @@ import {
   FiMessageSquare
 } from 'react-icons/fi';
 import { jobAPI, proposalAPI } from '../../services/api';
-import FeedbackSystem from '../../components/FeedbackSystem';
+import FeedbackSystem from '../../components/Developercomponents/FeedbackSystem'
 
 const UserProposals = () => {
   const [jobs, setJobs] = useState([]);

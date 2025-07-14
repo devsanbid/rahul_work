@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../../services/api';
-import FinancialHeader from '../../component/financials/FinancialHeader';
-import FinancialStats from '../../component/financials/FinancialStats';
-import FinancialCharts from '../../component/financials/FinancialCharts';
-import AdditionalStats from '../../component/financials/AdditionalStats';
-import TransactionTable from '../../component/financials/TransactionTable';
+import FinancialHeader from '../../components/Admincomponents/financials/FinancialHeader';
+import FinancialStats from '../../components/Admincomponents/financials/FinancialStats';
+import FinancialCharts from '../../components/Admincomponents/financials/FinancialCharts';
+import AdditionalStats from '../../components/Admincomponents/financials/AdditionalStats';
+import TransactionTable from '../../components/Admincomponents/financials/TransactionTable';
 
 const FinancialsPage = () => {
   const [financialData, setFinancialData] = useState(null);

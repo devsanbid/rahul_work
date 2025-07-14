@@ -134,7 +134,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
+    <div className="max-w-8xl mx-auto p-6 space-y-6">
       {/* Error/Success Messages */}
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
@@ -453,21 +453,6 @@ const Profile = () => {
               </div>
               <button className="px-6 py-2 text-sm font-medium text-[#d97757] border border-[#d97757] rounded-lg hover:bg-[#d97757] hover:text-white transition-all duration-200 hover:shadow-md">
                 Change
-              </button>
-            </div>
-
-            <div className="flex items-center justify-between p-6 border border-gray-200 rounded-lg hover:border-[#d97757] transition-all duration-200 hover:shadow-md">
-              <div className="flex items-start">
-                <svg className="w-5 h-5 mr-3 mt-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Two-Factor Authentication</h4>
-                  <p className="text-sm text-gray-600">Add an extra layer of security to your account</p>
-                </div>
-              </div>
-              <button className="px-6 py-2 text-sm font-medium text-[#d97757] border border-[#d97757] rounded-lg hover:bg-[#d97757] hover:text-white transition-all duration-200 hover:shadow-md">
-                Enable
               </button>
             </div>
           </div>
